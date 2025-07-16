@@ -7,10 +7,10 @@ jobs:
   send_email:
     runs-on: ubuntu-latest
     steps:
-      - name: "checkout code"
+      - name: "Checkout code"
         uses: actions/checkout@v2
 
-      - name: "setup python env"
+      - name: "Set up Python"
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
@@ -18,7 +18,7 @@ jobs:
       - name: "Install dependencies"
         run: |
           python -m pip install --upgrade pip
-          pip install smtplib email
+          # No need to install smtplib or email — they are standard libraries
 
       - name: "Send email by executing python script"
         run: python script.py
